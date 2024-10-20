@@ -1,2 +1,2 @@
 # YoutubeAssistant
-Watch yo ah
+Git good
