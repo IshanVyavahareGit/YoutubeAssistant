@@ -1,0 +1,6 @@
+{
+  "/titles_page/[project_id]/page": "app/titles_page/[project_id]/page.js",
+  "/select_questions/[project_id]/page": "app/select_questions/[project_id]/page.js",
+  "/select_sources/[project_id]/page": "app/select_sources/[project_id]/page.js",
+  "/project_idea/page": "app/project_idea/page.js"
+}
