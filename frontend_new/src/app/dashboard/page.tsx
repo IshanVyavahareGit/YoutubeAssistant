@@ -145,11 +145,11 @@ export default function DashboardPage() {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [data, setData] = useState<Project[]>(initialData)
   const router = useRouter()
+  const user_id = "1SpHj23Df5";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const user_id = "1SpHj23Df5";
         const response = await fetch("http://localhost:8080/apis/retrieve_projects", {
           method: 'POST',  
           headers: {
@@ -176,11 +176,27 @@ export default function DashboardPage() {
 
 
   const deleteProject = async (id: number) => {
-    // In a real application, you would call your API here
-    // For now, we'll just simulate the API call
-    await new Promise(resolve => setTimeout(resolve, 500)) // Simulate API delay
+    try {
+      const project_id = id.toString()
+      const response = await fetch("http://localhost:8080/apis/delete_project", {
+        method: 'POST',  
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: user_id,
+          project_id: project_id 
+        }),
+      });
 
-    // Remove the project from the data
+      if (!response.ok) {
+        throw new Error('Failed to fetch data')
+      }
+      
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    }
+
     setData(currentData => currentData.filter(project => project.project_id !== id))
   }
 
@@ -293,7 +309,14 @@ export default function DashboardPage() {
               >
                 Update Project
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => deleteProject(project.project_id)} className="hover:bg-gray-800 hover:text-gray-100">
+
+              <DropdownMenuItem
+                onClick={(event) => {
+                  event.stopPropagation(); // Prevent the row click event
+                  deleteProject(project.project_id); // Call the delete function
+                }}
+                className="hover:bg-gray-800 hover:text-gray-100"
+              >
                 Delete Project
               </DropdownMenuItem>
             </DropdownMenuContent>
