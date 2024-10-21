@@ -149,7 +149,8 @@ export default function QuestionSelector({params} : {params: {project_id: string
         setMessage(`Questions selected: ${selectedQuestions}`);
         setMessageColor("text-green-500");
 
-        router.push(`/select_sources/${params.project_id}`);
+        // router.push(`/select_sources/${params.project_id}`);
+        router.push(`/dashboard`);
 
       } else {
         setMessage(`Error: ${data.message}`);

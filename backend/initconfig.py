@@ -4,7 +4,7 @@ from pyrebase import pyrebase
 
 # Firebase Admin SDK initialization for normal db operations
 def initialize_firebase_admin():
-    cred = credentials.Certificate("./nextjs-ai-agents-firebase-adminsdk-fib2s-69d4cdd51a.json")
+    cred = credentials.Certificate("./nextjs-ai-agents-firebase-adminsdk-fib2s-9b27d1d7a9.json")
     firebase_admin.initialize_app(cred, {"databaseURL": "https://nextjs-ai-agents-default-rtdb.firebaseio.com/"})
 
 

@@ -1,6 +1,6 @@
 {
+  "/dashboard/page": "app/dashboard/page.js",
+  "/project_idea/[project_id]/page": "app/project_idea/[project_id]/page.js",
   "/titles_page/[project_id]/page": "app/titles_page/[project_id]/page.js",
-  "/select_questions/[project_id]/page": "app/select_questions/[project_id]/page.js",
-  "/select_sources/[project_id]/page": "app/select_sources/[project_id]/page.js",
-  "/project_idea/page": "app/project_idea/page.js"
+  "/select_questions/[project_id]/page": "app/select_questions/[project_id]/page.js"
 }
